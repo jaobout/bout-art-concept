@@ -1,338 +1,243 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bout Art Concept — HQ Underground</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --accent:#ff2d2d;
-      --accent2:#ffd400;
-      --paper:#ffffff;
-      --dark:#0b0b0b;
-      --glass: rgba(255,255,255,0.95);
-      --whatsapp: #25D366;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:var(--paper);
-      background:var(--dark);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      overflow-x:hidden;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bout Art Concept — Urban Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --grafite:#121212;
+    --blue:#2979ff;
+    --gold:#ffd400;
+    --muted:#bdbdbd;
+    --whatsapp:#25D366;
+    --card-alpha: rgba(255,255,255,0.04);
+    --glass: rgba(255,255,255,0.03);
+  }
+  /* mobile-first */
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background: linear-gradient(180deg,var(--bg),#070707);
+    color:#fff;
+    font-family: 'Nunito', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
 
-    /* Fullscreen HQ background (fixed/parallax) */
-    .bg{
-      position:fixed;
-      inset:0;
-      background-image: url('A_vibrant_digital_illustration_features_the_logo_f.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      filter: contrast(1.02) saturate(1.05);
-      z-index:-4;
-    }
-    /* Dark overlay to ensure legibility */
-    .overlay{
-      position:fixed;
-      inset:0;
-      background: linear-gradient(rgba(11,11,11,0.56), rgba(11,11,11,0.56));
-      backdrop-filter: blur(2px);
-      z-index:-3;
-    }
-    /* subtle paper grain for comic texture */
-    .grain{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size:6px 6px;
-      opacity:.08;
-      mix-blend-mode:screen;
-      z-index:-2;
-    }
+  /* header */
+  header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(180deg,var(--grafite),transparent)}
+  .logo-wrap{display:flex;align-items:center;gap:10px}
+  .logo-wrap img{width:48px;height:48px;border-radius:8px;object-fit:cover;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6))}
+  .studio-title{font-weight:900;font-family:'Bangers';font-size:1.25rem;color:var(--gold);letter-spacing:0.6px}
+  .studio-sub{font-size:0.78rem;color:var(--muted);margin-top:2px}
 
-    header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      padding:28px;
-      max-width:1200px;
-      margin:0 auto;
-      position:relative;
-    }
-    .logo{
-      width:120px;
-      height:120px;
-      border-radius:999px;
-      overflow:hidden;
-      border:6px solid #fff;
-      background:#fff;
-      flex-shrink:0;
-      box-shadow:0 10px 30px rgba(0,0,0,.4);
-      transform:translateY(-6px);
-    }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .title-wrap{color:var(--paper);margin-left:6px}
-    h1{
-      margin:0;
-      font-family:'Bangers', system-ui, sans-serif;
-      font-size:30px;
-      text-shadow:2px 2px 0 #000;
-      letter-spacing:1px;
-    }
-    p.lead{margin:6px 0 0;color:#f2f2f2;opacity:.95;font-weight:600}
-    nav{margin-left:auto;display:flex;gap:12px;align-items:center}
-    nav a{
-      background:var(--paper);
-      color:#000;
-      padding:8px 12px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:6px 6px 0 rgba(0,0,0,.5);
-      transition:transform .15s;
-    }
-    nav a:hover{transform:translateY(-4px)}
+  main{padding:14px;}
 
-    main{max-width:1100px;margin:18px auto;padding:20px;position:relative}
+  /* STORIES (video scroller) */
+  .stories {
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding:8px 6px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .story {
+    scroll-snap-align:start;
+    min-width:160px;
+    width:160px;
+    height:300px;
+    border-radius:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:2px solid rgba(255,255,255,0.06);
+    overflow:hidden;
+    position:relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 8px rgba(41,121,255,0.04) inset;
+    flex:0 0 auto;
+  }
+  .story video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .story .outline{
+    position:absolute;inset:8px;border-radius:12px;border:3px solid rgba(41,121,255,0.8);pointer-events:none;
+  }
 
-    /* glass cards */
-    .card{
-      background:var(--glass);
-      color:#111;
-      border-radius:14px;
-      padding:18px;
-      border:4px solid #000;
-      box-shadow:12px 12px 0 rgba(0,0,0,.45);
-      margin-bottom:18px;
-      backdrop-filter: blur(4px);
-    }
+  /* services grid (stories style) */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:12px;
+    margin-top:16px;
+  }
+  .card-service{
+    background:var(--card-alpha);
+    border-radius:14px;
+    padding:10px;
+    text-align:center;
+    border:2px solid rgba(255,255,255,0.04);
+    transition: transform .18s, border-color .18s;
+    cursor:pointer;
+  }
+  .card-service:hover{ transform:translateY(-6px); border-color: rgba(41,121,255,0.9); }
+  .service-img{ width:100%; height:120px; object-fit:cover; border-radius:10px; margin-bottom:8px; border:2px solid rgba(0,0,0,0.4); }
+  .service-title{ font-family:'Bangers'; color:var(--gold); font-size:1.05rem; margin-bottom:6px; }
+  .service-desc{ font-size:0.86rem; color:var(--muted); margin-bottom:8px; min-height:38px; }
+  .service-price{ font-weight:800; color:#fff; font-size:0.98rem; }
 
-    /* hero */
-    .hero{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
-    .hero-left{flex:1;min-width:260px}
-    .hero-right{width:320px}
-    .cta{
-      display:inline-block;
-      background:var(--accent);
-      color:#111;
-      padding:12px 18px;
-      border-radius:12px;
-      font-weight:800;
-      text-decoration:none;
-      box-shadow:6px 8px 0 #000;
-      transition:transform .12s;
-    }
-    .cta:hover{transform:translateY(-4px)}
+  /* action bar */
+  .action-row{ display:flex; gap:10px; margin:18px 0; align-items:center; justify-content:center; }
+  .btn-whatsapp{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--whatsapp); color:#fff; padding:12px 14px; border-radius:12px; font-weight:800; text-decoration:none;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.12);
+    flex:1; max-width:420px; justify-content:center;
+  }
+  .btn-maps{
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(90deg,var(--blue),#1877d3); color:#fff; padding:12px 12px; border-radius:12px; font-weight:800; text-decoration:none;
+    box-shadow: 0 8px 30px rgba(41,121,255,0.12);
+    flex:1; max-width:240px; justify-content:center;
+  }
 
-    /* services grid */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-      margin-top:12px;
-    }
-    .service{
-      background:var(--paper);
-      padding:14px;
-      border-radius:12px;
-      border:4px solid #000;
-      position:relative;
-      overflow:hidden;
-    }
-    .service .name{
-      font-weight:800;
-      font-family:'Bangers', system-ui, sans-serif;
-      color:var(--accent2);
-      margin-bottom:6px;
-    }
-    .service .price{
-      position:absolute;
-      right:12px;
-      top:12px;
-      background:var(--accent2);
-      color:#000;
-      padding:8px 10px;
-      border-radius:8px;
-      font-weight:800;
-      box-shadow:4px 6px 0 #000;
-    }
+  /* footer */
+  footer{padding:18px;text-align:center;color:var(--muted);font-size:0.85rem}
 
-    /* gallery */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-      gap:12px;
-    }
-    .thumb{
-      background:#fff;
-      border:4px solid #000;
-      border-radius:8px;
-      height:140px;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      color:#111;
-    }
+  /* small tweaks for images inside card for mobile */
+  .service-img-placeholder{ width:100%; height:120px; border-radius:10px; background:linear-gradient(180deg,#111,#070707); display:flex;align-items:center;justify-content:center;color:var(--muted); font-weight:700; }
 
-    /* agendamento */
-    .agendamento{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-    .agendar-btn{
-      background:#000;
-      color:#fff;
-      padding:14px 18px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:800;
-      border:4px solid #fff;
-      box-shadow:6px 8px 0 rgba(0,0,0,.4);
-    }
+  /* responsive adjustments */
+  @media (max-width:420px){
+    .story{ min-width:140px; height:260px; }
+    .service-img{ height:100px; }
+    .services-grid{ gap:10px; grid-template-columns:repeat(2,1fr); }
+    header{ padding:12px; }
+    .studio-title{ font-size:1.05rem; }
+    .action-row{ flex-direction:column; gap:10px; }
+    .btn-whatsapp, .btn-maps{ width:100%; max-width:100%; }
+  }
 
-    /* Pix */
-    .pix-section{display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px}
-    .pix-section img{
-      width:220px;height:220px;object-fit:contain;border:6px solid #000;background:#fff;padding:6px;border-radius:8px;
-    }
-
-    /* whatsapp floating */
-    .whatsapp-float{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      background:var(--whatsapp);
-      color:#fff;
-      padding:14px;
-      border-radius:999px;
-      box-shadow:6px 8px 0 rgba(0,0,0,.4);
-      text-decoration:none;
-      font-weight:800;
-      z-index:999;
-    }
-
-    footer{text-align:center;padding:26px;color:#ddd;margin-top:20px}
-
-    /* small animations */
-    @keyframes logoIn{from{transform:translateY(-30px) scale(.9);opacity:0}to{transform:translateY(-6px) scale(1);opacity:1}}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-    @keyframes cardUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-
-    @media(max-width:800px){
-      header{flex-direction:column;align-items:flex-start}
-      .hero-right{width:100%}
-      .logo{width:96px;height:96px}
-    }
-  </style>
+</style>
 </head>
 <body>
-  <!-- Background and overlays -->
-  <div class="bg" aria-hidden="true"></div>
-  <div class="overlay" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Header -->
-  <header>
-    <div class="logo" aria-hidden="true">
-      <img src="43e20c16-84c3-4070-909a-e943485d86c8.png" alt="Logo Bout Art Concept">
-    </div>
-    <div class="title-wrap">
-      <h1>Bout Art Concept</h1>
-      <p class="lead">Cartoon Underground — cortes com atitude</p>
-    </div>
+<header>
+  <div class="logo-wrap">
+    <!-- logo.png: coloque em /midia/logo/logo.png -->
+    <img src="midia/logo/logo.png" alt="Bout logo">
+    <div>
+      <div class="studio-title">Bout Art Concept</div>
+      <div class="studio-sub">Urban Premium • Cortes & Barba</div>
+    </div>
+  </div>
+</header>
 
-    <nav aria-label="Menu principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#agendamento">Agendar</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+<main>
+  <!-- Bem-vindo (pequeno) -->
+  <div style="padding:8px 6px 0 6px;">
+    <h2 style="font-family:'Bangers';color:var(--gold);margin:6px 0 2px 0;font-size:1.25rem;">Bem-vindo</h2>
+    <p style="color:var(--muted);margin:0 0 12px 0;font-size:0.95rem;">Escolha um vídeo e veja inspirações — depois selecione seu serviço.</p>
+  </div>
 
-  <!-- Main content -->
-  <main>
-    <!-- Hero -->
-    <section class="card hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-left">
-        <h2 id="hero-title" style="font-family:'Bangers', sans-serif; margin:0; color:#111">Bem-vindos ao site de agendamento</h2>
-        <p style="color:#222; margin-top:8px">Na Bout a atitude começa no corte. Ambiente alto-astral, visual único e acabamento que fala por si.</p>
-        <div style="margin-top:16px">
-          <a class="cta" href="https://wa.me/5521994858475" target="_blank" rel="noopener noreferrer">AGENDAR CORTE ✂️</a>
-        </div>
-      </div>
+  <!-- STORIES VIDEOS (formato vertical/stories) -->
+  <div class="stories" id="stories">
+    <div class="story"><video src="midia/videos/video1.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
+    <div class="story"><video src="midia/videos/video2.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
+    <div class="story"><video src="midia/videos/video3.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
+  </div>
 
-      <div class="hero-right">
-        <div style="background:var(--accent2);padding:14px;border-radius:10px;border:4px solid #000;font-weight:800;color:#111">Promo: Corte + Barba — R$45</div>
-        <div style="margin-top:12px;background:var(--accent);padding:14px;border-radius:10px;border:4px solid #000;font-weight:800;color:#111">Fidelidade: Pacote mensal — consulte</div>
-      </div>
-    </section>
+  <!-- Serviços -->
+  <div style="margin-top:12px;">
+    <div class="services-grid">
+      <!-- cada card aponta para agendar.html com ?servico= -->
+      <a class="card-service" href="agendar.html?servico=Corte%20Simples">
+        <img class="service-img" src="midia/fotos/foto1.jpg" alt="Corte Simples">
+        <div class="service-title">Corte Simples</div>
+        <div class="service-desc">Corte rápido, prático e alinhado.</div>
+        <div class="service-price">R$15</div>
+      </a>
 
-    <!-- Services -->
-    <section class="card" id="servicos" aria-labelledby="servicos-title">
-      <h3 id="servicos-title" style="margin-top:0">Serviços e Preços</h3>
-      <div class="services-grid">
-        <div class="service"><div class="name">Corte Simples</div><div class="price">R$ 15</div><p>Um pente só, rápido e eficiente.</p></div>
-        <div class="service"><div class="name">Corte Social (CS)</div><div class="price">R$ 25</div><p>Pente 1 a 3, visual alinhado.</p></div>
-        <div class="service"><div class="name">Corte Disfarçado (CD)</div><div class="price">R$ 35</div><p>Degradê e acabamento profissional.</p></div>
-        <div class="service"><div class="name">Acabamento / Pé</div><div class="price">R$ 10</div><p>Contornos e limpeza final.</p></div>
-        <div class="service"><div class="name">Barba Simples</div><div class="price">R$ 10</div><p>Limpeza com máquina ou navalha.</p></div>
-        <div class="service"><div class="name">Barba Modelada</div><div class="price">R$ 15</div><p>Desenho e finalização.</p></div>
-        <div class="service"><div class="name">Pigmentação</div><div class="price">R$ 10</div><p>Cabelo ou barba.</p></div>
-        <div class="service"><div class="name">Sobrancelha</div><div class="price">R$ 5</div><p>Limpeza e desenho.</p></div>
-        <div class="service"><div class="name">Bigode</div><div class="price">R$ 5</div><p>Ajuste rápido.</p></div>
-        <div class="service"><div class="name">Platinado / Reflexo</div><div class="price">Consultar</div><p>Valor sob consulta.</p></div>
-      </div>
-    </section>
+      <a class="card-service" href="agendar.html?servico=Corte%20Social">
+        <img class="service-img" src="midia/fotos/foto2.jpg" alt="Corte Social">
+        <div class="service-title">Corte Social</div>
+        <div class="service-desc">Do pente 1 ao 3, acabamento polido.</div>
+        <div class="service-price">R$25</div>
+      </a>
 
-    <!-- Gallery -->
-    <section class="card" id="galeria" aria-labelledby="galeria-title">
-      <h3 id="galeria-title" style="margin-top:0">Galeria</h3>
-      <div class="gallery">
-        <div class="thumb">Imagem 1</div>
-        <div class="thumb">Imagem 2</div>
-        <div class="thumb">Imagem 3</div>
-        <div class="thumb">Imagem 4</div>
-      </div>
-    </section>
+      <a class="card-service" href="agendar.html?servico=Corte%20Disfarcado">
+        <img class="service-img" src="midia/fotos/foto3.jpg" alt="Disfarçado">
+        <div class="service-title">Disfarçado</div>
+        <div class="service-desc">Degradê moderno e acabamento nítido.</div>
+        <div class="service-price">R$35</div>
+      </a>
 
-    <!-- Agendamento -->
-    <section class="card" id="agendamento" aria-labelledby="agendamento-title">
-      <h3 id="agendamento-title" style="margin-top:0">Agendamento</h3>
-      <div class="agendamento">
-        <div style="flex:1">
-          <p>Atendemos de Terça a Sábado — 10h às 20h</p>
-          <p>Rua Saturno, 809</p>
-        </div>
-        <div style="min-width:220px">
-          <a class="agendar-btn" href="https://wa.me/5521994858475" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
-        </div>
-      </div>
-    </section>
+      <a class="card-service" href="agendar.html?servico=Acabamento">
+        <img class="service-img" src="midia/fotos/foto4.jpg" alt="Acabamento">
+        <div class="service-title">Acabamento</div>
+        <div class="service-desc">Contornos e limpeza final.</div>
+        <div class="service-price">R$10</div>
+      </a>
 
-    <!-- Pix / Pagamento (seção separada) -->
-    <section class="card pix-section" id="contato" aria-labelledby="pix-title">
-      <h3 id="pix-title" style="margin-top:0">Pagamento via Pix</h3>
-      <p>Escaneie o QR code abaixo ou copie a chave para pagar.</p>
-      <img src="4c283885-93ae-4782-b08d-05f7cdd5dee1.jpg" alt="QR Code Pix">
-      <p style="margin:0;font-weight:800">Nome: João Victor da Silva</p>
-      <p style="margin:0">Banco: Itaú</p>
-    </section>
+      <a class="card-service" href="agendar.html?servico=Barba%20Simples">
+        <img class="service-img" src="midia/fotos/foto5.jpg" alt="Barba Simples">
+        <div class="service-title">Barba Simples</div>
+        <div class="service-desc">Limpeza e alinhamento básico.</div>
+        <div class="service-price">R$10</div>
+      </a>
 
-  </main>
+      <a class="card-service" href="agendar.html?servico=Barba%20Modelada">
+        <img class="service-img" src="midia/fotos/foto6.jpg" alt="Barba Modelada">
+        <div class="service-title">Barba Modelada</div>
+        <div class="service-desc">Formato marcado e design no rosto.</div>
+        <div class="service-price">R$15</div>
+      </a>
 
-  <!-- whatsapp floating -->
-  <a class="whatsapp-float" href="https://wa.me/5521994858475" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
+      <a class="card-service" href="agendar.html?servico=Pigmenta%C3%A7%C3%A3o">
+        <img class="service-img" src="midia/fotos/foto7.jpg" alt="Pigmentação">
+        <div class="service-title">Pigmentação</div>
+        <div class="service-desc">Reforço de cor em entradas ou barba.</div>
+        <div class="service-price">R$10</div>
+      </a>
 
-  <footer>
-    <div style="opacity:.9;font-weight:700">Bout Art Concept</div>
-    <div style="opacity:.6;margin-top:6px">© Todos os direitos reservados</div>
-  </footer>
+      <a class="card-service" href="agendar.html?servico=Sobrancelha">
+        <img class="service-img" src="midia/fotos/foto8.jpg" alt="Sobrancelha">
+        <div class="service-title">Sobrancelha</div>
+        <div class="service-desc">Limpeza e definição.</div>
+        <div class="service-price">R$5</div>
+      </a>
+
+      <a class="card-service" href="agendar.html?servico=Bigode">
+        <img class="service-img" src="midia/fotos/foto9.jpg" alt="Bigode">
+        <div class="service-title">Bigode</div>
+        <div class="service-desc">Ajuste e acabamento fino.</div>
+        <div class="service-price">R$5</div>
+      </a>
+
+      <a class="card-service" href="agendar.html?servico=Platinado">
+        <img class="service-img" src="midia/fotos/foto10.jpg" alt="Platinado">
+        <div class="service-title">Platinado</div>
+        <div class="service-desc">Processo detalhado, valor sob consulta.</div>
+        <div class="service-price">Consultar</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ação central -->
+  <div class="action-row" style="padding:0 12px 18px 12px;">
+    <a class="btn-whatsapp" href="https://wa.me/5521978893270" target="_blank" rel="noopener noreferrer">💬 AGENDAR PELO WHATSAPP</a>
+    <a class="btn-maps" href="https://www.google.com/maps/dir/?api=1&destination=-22.9035,-43.2096" target="_blank" rel="noopener noreferrer">📍 COMO CHEGAR</a>
+  </div>
+
+</main>
+
+<footer>
+  © Bout Art Concept — Todos os direitos reservados
+</footer>
 
 </body>
 </html>
