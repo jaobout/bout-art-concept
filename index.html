@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bout Art Concept - BAC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="hero" id="home">
+        <div class="hero-grid">
+            <div class="hero-video-wrapper">
+                <div class="video-overlay"></div>
+                <video autoplay muted loop playsinline>
+                    <source src="video1.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="hero-center">
+                <div class="logo-wrapper">
+                    <div class="logo-texture-ring"></div>
+                    <img src="43e20c16-84c3-4070-909a-e943485d86c8.png" alt="BAC Logo" class="hero-logo">
+                </div>
+            </div>
+
+            <div class="hero-video-wrapper">
+                <div class="video-overlay"></div>
+                <video autoplay muted loop playsinline class="flipped-video">
+                    <source src="video3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Serviços & Preços</h2>
+            <p class="section-subtitle">Escolha o serviço ideal e agende diretamente pelo WhatsApp.</p>
+
+            <div class="services-grid">
+                
+                <div class="service-category highlight-category">
+                    <h3 class="category-title">Cortes</h3>
+                    
+                    <div class="service-card with-image">
+                        <div class="image-placeholder"><span>[Foto Corte]</span></div>
+                        <div class="service-info">
+                            <h4>Corte Masculino</h4>
+                            <p>30min • Higienização e secagem.</p>
+                            <span class="price">R$ 80,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Corte Masculino" data-price="80,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card with-image">
+                        <div class="image-placeholder"><span>[Foto Corte Infantil]</span></div>
+                        <div class="service-info">
+                            <h4>Corte Infantil</h4>
+                            <p>30min</p>
+                            <span class="price">R$ 85,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Corte Infantil" data-price="85,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Corte Feminino</h4>
+                            <p>45min</p>
+                            <span class="price">R$ 120,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Corte Feminino" data-price="120,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Combo - Corte e Barba</h4>
+                            <p>1h</p>
+                            <span class="price">R$ 125,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Combo Corte e Barba" data-price="125,00">Agendar</button>
+                    </div>
+                </div>
+
+                <div class="service-category highlight-category">
+                    <h3 class="category-title">Coloração e Transformação</h3>
+                    
+                    <div class="service-card with-image">
+                        <div class="image-placeholder"><span>[Foto Coloração]</span></div>
+                        <div class="service-info">
+                            <h4>Camuflagem de Cabelo</h4>
+                            <p>1h</p>
+                            <span class="price">R$ 90,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Camuflagem de Cabelo" data-price="90,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card with-image">
+                        <div class="image-placeholder"><span>[Foto Reflexo]</span></div>
+                        <div class="service-info">
+                            <h4>Reflexo</h4>
+                            <p>1h30</p>
+                            <span class="price">R$ 150,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Reflexo" data-price="150,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Platinado</h4>
+                            <p>2h30</p>
+                            <span class="price">R$ 250,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Platinado" data-price="250,00">Agendar</button>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h3 class="category-title">Barba</h3>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Barba</h4>
+                            <p>30min</p>
+                            <span class="price">R$ 65,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Barba" data-price="65,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Barboterapia</h4>
+                            <p>50min</p>
+                            <span class="price">R$ 90,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Barboterapia" data-price="90,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Camuflagem de Barba</h4>
+                            <p>1h</p>
+                            <span class="price">R$ 80,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Camuflagem de Barba" data-price="80,00">Agendar</button>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h3 class="category-title">Tratamentos Capilares</h3>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Hidratação</h4>
+                            <p>40min</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Hidratação" data-price="Consulta">Consultar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Relaxamento</h4>
+                            <p>40min</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Relaxamento" data-price="Consulta">Consultar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Selagem</h4>
+                            <p>1h</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Selagem" data-price="Consulta">Consultar</button>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h3 class="category-title">Depilação e Cuidados</h3>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Depilação - Nariz</h4>
+                            <p>15min</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Depilação Nariz" data-price="Consulta">Consultar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Depilação - Orelha</h4>
+                            <p>15min</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Depilação Orelha" data-price="Consulta">Consultar</button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Combo - Nariz e Orelha</h4>
+                            <p>30min</p>
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Combo Depilação" data-price="Consulta">Consultar</button>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h3 class="category-title">Acabamento</h3>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Pezinho</h4>
+                            <p>20min</p>
+                            <span class="price">R$ 30,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Pezinho" data-price="30,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Lavagem / Shampoo</h4>
+                            <p>20min</p>
+                            <span class="price">R$ 30,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Lavagem" data-price="30,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Sobrancelha</h4>
+                            <p>20min</p>
+                            <span class="price">R$ 40,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Sobrancelha" data-price="40,00">Agendar</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Limpeza de Pele</h4>
+                            <p>50min</p>
+                            <span class="price">R$ 80,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Limpeza de Pele" data-price="80,00">Agendar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-background"></div>
+        <div class="container cta-container">
+            <div class="cta-text">
+                <h2>Book your style seamlessly.</h2>
+                <p>Schedule your appointment directly through our website or via WhatsApp. Fast, easy, and tailored for you.</p>
+                <a href="#services" class="btn-primary">Schedule Now</a>
+            </div>
+            <div class="cta-mockups">
+                <div class="phone phone-back">
+                    <div class="phone-screen site-preview">
+                        <div class="prev-header"></div>
+                        <div class="prev-hero"></div>
+                        <div class="prev-grid">
+                            <div class="prev-box"></div><div class="prev-box"></div><div class="prev-box"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone phone-front">
+                    <div class="phone-screen wpp-chat">
+                        <div class="wpp-header">
+                            <div class="wpp-avatar"><img src="43e20c16-84c3-4070-909a-e943485d86c8.png" alt="BAC"></div>
+                            <div class="wpp-info"><strong>Bout Art Concept</strong><span>Online</span></div>
+                        </div>
+                        <div class="wpp-body">
+                            <div class="chat-bubble client">Hi! I'd like to schedule a haircut for today. <span class="time">10:42 AM</span></div>
+                            <div class="chat-bubble studio">Hello! Let's get you booked. ✂️🔥 <span class="time">10:45 AM</span></div>
+                        </div>
+                        <div class="wpp-input-area"><div class="wpp-input">Message...</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
