@@ -1,243 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Bout Art Concept — Urban Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0b0b0b;
-    --grafite:#121212;
-    --blue:#2979ff;
-    --gold:#ffd400;
-    --muted:#bdbdbd;
-    --whatsapp:#25D366;
-    --card-alpha: rgba(255,255,255,0.04);
-    --glass: rgba(255,255,255,0.03);
-  }
-  /* mobile-first */
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    background: linear-gradient(180deg,var(--bg),#070707);
-    color:#fff;
-    font-family: 'Nunito', system-ui, sans-serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-
-  /* header */
-  header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(180deg,var(--grafite),transparent)}
-  .logo-wrap{display:flex;align-items:center;gap:10px}
-  .logo-wrap img{width:48px;height:48px;border-radius:8px;object-fit:cover;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6))}
-  .studio-title{font-weight:900;font-family:'Bangers';font-size:1.25rem;color:var(--gold);letter-spacing:0.6px}
-  .studio-sub{font-size:0.78rem;color:var(--muted);margin-top:2px}
-
-  main{padding:14px;}
-
-  /* STORIES (video scroller) */
-  .stories {
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    padding:8px 6px;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-  }
-  .story {
-    scroll-snap-align:start;
-    min-width:160px;
-    width:160px;
-    height:300px;
-    border-radius:16px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:2px solid rgba(255,255,255,0.06);
-    overflow:hidden;
-    position:relative;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 8px rgba(41,121,255,0.04) inset;
-    flex:0 0 auto;
-  }
-  .story video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .story .outline{
-    position:absolute;inset:8px;border-radius:12px;border:3px solid rgba(41,121,255,0.8);pointer-events:none;
-  }
-
-  /* services grid (stories style) */
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:12px;
-    margin-top:16px;
-  }
-  .card-service{
-    background:var(--card-alpha);
-    border-radius:14px;
-    padding:10px;
-    text-align:center;
-    border:2px solid rgba(255,255,255,0.04);
-    transition: transform .18s, border-color .18s;
-    cursor:pointer;
-  }
-  .card-service:hover{ transform:translateY(-6px); border-color: rgba(41,121,255,0.9); }
-  .service-img{ width:100%; height:120px; object-fit:cover; border-radius:10px; margin-bottom:8px; border:2px solid rgba(0,0,0,0.4); }
-  .service-title{ font-family:'Bangers'; color:var(--gold); font-size:1.05rem; margin-bottom:6px; }
-  .service-desc{ font-size:0.86rem; color:var(--muted); margin-bottom:8px; min-height:38px; }
-  .service-price{ font-weight:800; color:#fff; font-size:0.98rem; }
-
-  /* action bar */
-  .action-row{ display:flex; gap:10px; margin:18px 0; align-items:center; justify-content:center; }
-  .btn-whatsapp{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--whatsapp); color:#fff; padding:12px 14px; border-radius:12px; font-weight:800; text-decoration:none;
-    box-shadow: 0 8px 30px rgba(37,211,102,0.12);
-    flex:1; max-width:420px; justify-content:center;
-  }
-  .btn-maps{
-    display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(90deg,var(--blue),#1877d3); color:#fff; padding:12px 12px; border-radius:12px; font-weight:800; text-decoration:none;
-    box-shadow: 0 8px 30px rgba(41,121,255,0.12);
-    flex:1; max-width:240px; justify-content:center;
-  }
-
-  /* footer */
-  footer{padding:18px;text-align:center;color:var(--muted);font-size:0.85rem}
-
-  /* small tweaks for images inside card for mobile */
-  .service-img-placeholder{ width:100%; height:120px; border-radius:10px; background:linear-gradient(180deg,#111,#070707); display:flex;align-items:center;justify-content:center;color:var(--muted); font-weight:700; }
-
-  /* responsive adjustments */
-  @media (max-width:420px){
-    .story{ min-width:140px; height:260px; }
-    .service-img{ height:100px; }
-    .services-grid{ gap:10px; grid-template-columns:repeat(2,1fr); }
-    header{ padding:12px; }
-    .studio-title{ font-size:1.05rem; }
-    .action-row{ flex-direction:column; gap:10px; }
-    .btn-whatsapp, .btn-maps{ width:100%; max-width:100%; }
-  }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bout Art Concept - BAC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="logo-wrap">
-    <!-- logo.png: coloque em /midia/logo/logo.png -->
-    <img src="midia/logo/logo.png" alt="Bout logo">
-    <div>
-      <div class="studio-title">Bout Art Concept</div>
-      <div class="studio-sub">Urban Premium • Cortes & Barba</div>
-    </div>
-  </div>
-</header>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <!-- Bloco 1: Vídeo Esquerda -->
+        <div class="hero-block hero-video-left">
+            <video autoplay muted loop playsinline>
+                <source src="video1 (1).mp4" type="video/mp4">
+            </video>
+        </div>
 
-<main>
-  <!-- Bem-vindo (pequeno) -->
-  <div style="padding:8px 6px 0 6px;">
-    <h2 style="font-family:'Bangers';color:var(--gold);margin:6px 0 2px 0;font-size:1.25rem;">Bem-vindo</h2>
-    <p style="color:var(--muted);margin:0 0 12px 0;font-size:0.95rem;">Escolha um vídeo e veja inspirações — depois selecione seu serviço.</p>
-  </div>
+        <!-- Bloco 2: Centro (Logo) -->
+        <div class="hero-block hero-center">
+            <div class="logo-wrapper">
+                <div class="logo-texture-ring"></div>
+                <img src="43e20c16-84c3-4070-909a-e943485d86c8.png" alt="Bout Art Concept Logo" class="hero-logo">
+            </div>
+        </div>
 
-  <!-- STORIES VIDEOS (formato vertical/stories) -->
-  <div class="stories" id="stories">
-    <div class="story"><video src="midia/videos/video1.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
-    <div class="story"><video src="midia/videos/video2.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
-    <div class="story"><video src="midia/videos/video3.mp4" playsinline autoplay muted loop></video><div class="outline"></div></div>
-  </div>
+        <!-- Bloco 3: Vídeo Direita Invertido -->
+        <div class="hero-block hero-video-right">
+            <video autoplay muted loop playsinline class="flipped-video">
+                <source src="video3.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Rolar para baixo</span>
+            <div class="arrow-down"></div>
+        </div>
+    </section>
 
-  <!-- Serviços -->
-  <div style="margin-top:12px;">
-    <div class="services-grid">
-      <!-- cada card aponta para agendar.html com ?servico= -->
-      <a class="card-service" href="agendar.html?servico=Corte%20Simples">
-        <img class="service-img" src="midia/fotos/foto1.jpg" alt="Corte Simples">
-        <div class="service-title">Corte Simples</div>
-        <div class="service-desc">Corte rápido, prático e alinhado.</div>
-        <div class="service-price">R$15</div>
-      </a>
+    <!-- SERVIÇOS E PREÇOS SECTION -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Serviços & Preços</h2>
+            <p class="section-subtitle">Escolha o serviço ideal e agende diretamente pelo WhatsApp.</p>
 
-      <a class="card-service" href="agendar.html?servico=Corte%20Social">
-        <img class="service-img" src="midia/fotos/foto2.jpg" alt="Corte Social">
-        <div class="service-title">Corte Social</div>
-        <div class="service-desc">Do pente 1 ao 3, acabamento polido.</div>
-        <div class="service-price">R$25</div>
-      </a>
+            <div class="services-grid">
+                
+                <!-- Categoria: Cortes (Com placeholder de imagem) -->
+                <div class="service-category">
+                    <h3 class="category-title">Cortes</h3>
+                    
+                    <div class="service-card with-image">
+                        <div class="image-placeholder">
+                            <span>[Inserir Foto Aqui]</span>
+                        </div>
+                        <div class="service-info">
+                            <h4>Corte Masculino</h4>
+                            <p>30min • Higienização e secagem.</p>
+                            <span class="price">R$ 80,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Corte Masculino" data-price="80.00">Agendar este serviço</button>
+                    </div>
 
-      <a class="card-service" href="agendar.html?servico=Corte%20Disfarcado">
-        <img class="service-img" src="midia/fotos/foto3.jpg" alt="Disfarçado">
-        <div class="service-title">Disfarçado</div>
-        <div class="service-desc">Degradê moderno e acabamento nítido.</div>
-        <div class="service-price">R$35</div>
-      </a>
+                    <div class="service-card with-image">
+                        <div class="image-placeholder">
+                            <span>[Inserir Foto Aqui]</span>
+                        </div>
+                        <div class="service-info">
+                            <h4>Corte Infantil</h4>
+                            <p>30min • Estilo e paciência.</p>
+                            <span class="price">R$ 85,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Corte Infantil" data-price="85.00">Agendar este serviço</button>
+                    </div>
+                </div>
 
-      <a class="card-service" href="agendar.html?servico=Acabamento">
-        <img class="service-img" src="midia/fotos/foto4.jpg" alt="Acabamento">
-        <div class="service-title">Acabamento</div>
-        <div class="service-desc">Contornos e limpeza final.</div>
-        <div class="service-price">R$10</div>
-      </a>
+                <!-- Categoria: Colorimetria (Com placeholder de imagem) -->
+                <div class="service-category">
+                    <h3 class="category-title">Colorimetria</h3>
+                    
+                    <div class="service-card with-image">
+                        <div class="image-placeholder">
+                            <span>[Inserir Foto Aqui]</span>
+                        </div>
+                        <div class="service-info">
+                            <h4>Platinado Completo</h4>
+                            <p>2h • Descoloração e matização.</p>
+                            <span class="price">R$ 150,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Platinado Completo" data-price="150.00">Agendar este serviço</button>
+                    </div>
 
-      <a class="card-service" href="agendar.html?servico=Barba%20Simples">
-        <img class="service-img" src="midia/fotos/foto5.jpg" alt="Barba Simples">
-        <div class="service-title">Barba Simples</div>
-        <div class="service-desc">Limpeza e alinhamento básico.</div>
-        <div class="service-price">R$10</div>
-      </a>
+                    <div class="service-card with-image">
+                        <div class="image-placeholder">
+                            <span>[Inserir Foto Aqui]</span>
+                        </div>
+                        <div class="service-info">
+                            <h4>Luzes / Reflexo</h4>
+                            <p>1h 30min • Detalhes que destacam.</p>
+                            <span class="price">R$ 120,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Luzes / Reflexo" data-price="120.00">Agendar este serviço</button>
+                    </div>
+                </div>
 
-      <a class="card-service" href="agendar.html?servico=Barba%20Modelada">
-        <img class="service-img" src="midia/fotos/foto6.jpg" alt="Barba Modelada">
-        <div class="service-title">Barba Modelada</div>
-        <div class="service-desc">Formato marcado e design no rosto.</div>
-        <div class="service-price">R$15</div>
-      </a>
+                <!-- Categoria: Barba (Sem placeholder) -->
+                <div class="service-category">
+                    <h3 class="category-title">Barba</h3>
+                    
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Barba Clássica</h4>
+                            <p>30min • Toalha quente e navalha.</p>
+                            <span class="price">R$ 65,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Barba Clássica" data-price="65.00">Agendar este serviço</button>
+                    </div>
 
-      <a class="card-service" href="agendar.html?servico=Pigmenta%C3%A7%C3%A3o">
-        <img class="service-img" src="midia/fotos/foto7.jpg" alt="Pigmentação">
-        <div class="service-title">Pigmentação</div>
-        <div class="service-desc">Reforço de cor em entradas ou barba.</div>
-        <div class="service-price">R$10</div>
-      </a>
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Barboterapia</h4>
+                            <p>50min • Relaxamento profundo.</p>
+                            <span class="price">R$ 90,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Barboterapia" data-price="90.00">Agendar este serviço</button>
+                    </div>
 
-      <a class="card-service" href="agendar.html?servico=Sobrancelha">
-        <img class="service-img" src="midia/fotos/foto8.jpg" alt="Sobrancelha">
-        <div class="service-title">Sobrancelha</div>
-        <div class="service-desc">Limpeza e definição.</div>
-        <div class="service-price">R$5</div>
-      </a>
+                    <div class="service-card">
+                        <div class="service-info">
+                            <h4>Camuflagem de Barba</h4>
+                            <p>1h • Fios brancos disfarçados.</p>
+                            <span class="price">R$ 80,00</span>
+                        </div>
+                        <button class="btn-schedule" data-service="Camuflagem de Barba" data-price="80.00">Agendar este serviço</button>
+                    </div>
+                </div>
 
-      <a class="card-service" href="agendar.html?servico=Bigode">
-        <img class="service-img" src="midia/fotos/foto9.jpg" alt="Bigode">
-        <div class="service-title">Bigode</div>
-        <div class="service-desc">Ajuste e acabamento fino.</div>
-        <div class="service-price">R$5</div>
-      </a>
+            </div>
+        </div>
+    </section>
 
-      <a class="card-service" href="agendar.html?servico=Platinado">
-        <img class="service-img" src="midia/fotos/foto10.jpg" alt="Platinado">
-        <div class="service-title">Platinado</div>
-        <div class="service-desc">Processo detalhado, valor sob consulta.</div>
-        <div class="service-price">Consultar</div>
-      </a>
-    </div>
-  </div>
+    <!-- CALL TO ACTION / CONTATO -->
+    <section class="cta-section" id="contact">
+        <!-- Background Orla RJ Graffiti Vibe -->
+        <div class="cta-background"></div>
+        
+        <div class="container cta-container">
+            <!-- Texto -->
+            <div class="cta-text">
+                <h2>Book your style seamlessly.</h2>
+                <p>Schedule your appointment directly through our website or via WhatsApp. Fast, easy, and tailored for you.</p>
+                <a href="#services" class="btn-primary">Schedule Now</a>
+            </div>
 
-  <!-- ação central -->
-  <div class="action-row" style="padding:0 12px 18px 12px;">
-    <a class="btn-whatsapp" href="https://wa.me/5521978893270" target="_blank" rel="noopener noreferrer">💬 AGENDAR PELO WHATSAPP</a>
-    <a class="btn-maps" href="https://www.google.com/maps/dir/?api=1&destination=-22.9035,-43.2096" target="_blank" rel="noopener noreferrer">📍 COMO CHEGAR</a>
-  </div>
+            <!-- Mockups -->
+            <div class="cta-mockups">
+                
+                <!-- Celular 2 (Fundo - Miniatura do site) -->
+                <div class="phone phone-back">
+                    <div class="phone-screen site-preview">
+                        <div class="prev-header"></div>
+                        <div class="prev-hero"></div>
+                        <div class="prev-grid">
+                            <div class="prev-box"></div>
+                            <div class="prev-box"></div>
+                            <div class="prev-box"></div>
+                        </div>
+                    </div>
+                </div>
 
-</main>
+                <!-- Celular 1 (Frente - WhatsApp Simulado) -->
+                <div class="phone phone-front">
+                    <div class="phone-screen wpp-chat">
+                        <div class="wpp-header">
+                            <div class="wpp-avatar">
+                                <img src="43e20c16-84c3-4070-909a-e943485d86c8.png" alt="BAC">
+                            </div>
+                            <div class="wpp-info">
+                                <strong>Bout Art Concept</strong>
+                                <span>Online</span>
+                            </div>
+                        </div>
+                        <div class="wpp-body">
+                            <div class="chat-bubble client">
+                                Hi! I'd like to schedule a haircut for today at 3 PM.
+                                <span class="time">10:42 AM</span>
+                            </div>
+                            <div class="chat-bubble studio">
+                                Hello! You're booked for 3 PM. See you soon! ✂️🔥
+                                <span class="time">10:45 AM</span>
+                            </div>
+                        </div>
+                        <div class="wpp-input-area">
+                            <div class="wpp-input">Message...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  © Bout Art Concept — Todos os direitos reservados
-</footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
